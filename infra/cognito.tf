@@ -1,21 +1,21 @@
-
-resource "aws_ssm_parameter" "user_pool_id" {
-  name  = "/app/cognito/user_pool_id"
-  type  = "String"
-  value = aws_cognito_user_pool.xpix_pool.id
-}
-import {
-  to = aws_ssm_parameter.user_pool_id
-  id = "/app/cognito/user_pool_id"
+resource "aws_ssm_parameter" "user_pool_id"{
+    name = "/app/cognito/user_pool_id"
+    type = "String"
+    value = "aws_cognito_pool.xpix_pool.id"
 }
 
-
-resource "aws_ssm_parameter" "client_id" {
-  name  = "/app/cognito/client_id"
-  type  = "String"
-  value = aws_cognito_user_pool_client.xpix_client.id
+import{
+    to = aws_ssm_parameter.user_pool_id
+    id = "/app/cognito/user_pool_id"
 }
-import {
-  to = aws_ssm_parameter.client_id
-  id = "/app/cognito/client_id"
+
+resource "aws_ssm_parameter" "client_id"{
+    name = "/app/cognito/client_id"
+    type = "String"
+    value = aws_cognito_user_pool_client.xpix_client.id
+}
+
+import{
+    to = aws_ssm_parameter.client_id
+    id = "/app/cognito/client_id"
 }

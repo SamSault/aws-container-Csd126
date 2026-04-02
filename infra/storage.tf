@@ -70,6 +70,8 @@ resource "aws_ssm_parameter" "photo_bucket" {
     name = "/app/s3/photos_bucket_name"
     type = "String"
     value = "bucket"
+    overwrite = true
+
 
   
 }
@@ -78,6 +80,7 @@ resource "aws_ssm_parameter" "photo_table" {
     name = "/app/dynamodb/photos_table_name"
     type = "String"
     value = "name"
+    overwrite = true
 
   
 }
